@@ -29,7 +29,7 @@ import java.time.temporal.ChronoUnit.MILLIS
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     properties = [
-        "spring.r2dbc.url=r2dbc:h2:mem:///mytestdb"
+        "spring.r2dbc.url=r2dbc:h2:mem:///mytestdb?options=DB_CLOSE_DELAY=-1"
     ]
 )
 class ChatKotlinApplicationTests {
