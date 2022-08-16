@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
 class MessageResource(val messageService: MessageService) {
 
     @GetMapping
-    fun latest(
+    suspend fun latest(
         @RequestParam(
             value = "lastMessageId",
             defaultValue = ""
@@ -37,7 +37,7 @@ class MessageResource(val messageService: MessageService) {
     }
 
     @PostMapping
-    fun post(@RequestBody message: MessageInputVM) {
+    suspend fun post(@RequestBody message: MessageInputVM) {
         messageService.post(message)
     }
 }
