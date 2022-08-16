@@ -2,11 +2,13 @@ package com.example.kotlin.chat
 
 import com.example.kotlin.chat.repository.ContentType
 import com.example.kotlin.chat.repository.Message
+import com.example.kotlin.chat.service.MessageInputVM
 import com.example.kotlin.chat.service.MessageVM
 import com.example.kotlin.chat.service.UserVM
+import org.springframework.web.util.HtmlUtils
 import java.net.URL
 
-fun MessageVM.asDomainObject(contentType: ContentType = ContentType.PLAIN): Message = Message(
+fun MessageInputVM.asDomainObject(contentType: ContentType = ContentType.PLAIN): Message = Message(
     content,
     contentType,
     sent,
@@ -16,7 +18,7 @@ fun MessageVM.asDomainObject(contentType: ContentType = ContentType.PLAIN): Mess
 )
 
 fun Message.asViewModel(): MessageVM = MessageVM(
-    content,
+    HtmlUtils.htmlEscape(content),
     UserVM(username, URL(userAvatarImageLink)),
     sent,
     id

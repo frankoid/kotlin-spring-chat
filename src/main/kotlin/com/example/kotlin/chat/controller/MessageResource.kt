@@ -1,5 +1,6 @@
 package com.example.kotlin.chat.controller
 
+import com.example.kotlin.chat.service.MessageInputVM
 import com.example.kotlin.chat.service.MessageService
 import com.example.kotlin.chat.service.MessageVM
 import org.springframework.http.ResponseEntity
@@ -36,7 +37,7 @@ class MessageResource(val messageService: MessageService) {
     }
 
     @PostMapping
-    fun post(@RequestBody message: MessageVM) {
+    fun post(@RequestBody message: MessageInputVM) {
         messageService.post(message)
     }
 }

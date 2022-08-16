@@ -3,6 +3,7 @@ package com.example.kotlin.chat
 import com.example.kotlin.chat.repository.ContentType
 import com.example.kotlin.chat.repository.Message
 import com.example.kotlin.chat.repository.MessageRepository
+import com.example.kotlin.chat.service.MessageInputVM
 import com.example.kotlin.chat.service.MessageVM
 import com.example.kotlin.chat.service.UserVM
 import org.assertj.core.api.Assertions.assertThat
@@ -119,7 +120,7 @@ class ChatKotlinApplicationTests {
     fun `test that messages posted to the API is stored`() {
         client.postForEntity<Any>(
             URI("/api/v1/messages"),
-            MessageVM(
+            MessageInputVM(
                 "`HelloWorld`",
                 UserVM("test", URL("http://test.com")),
                 now.plusSeconds(1)

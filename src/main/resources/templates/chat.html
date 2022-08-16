@@ -76,7 +76,7 @@
                                              th:src="${message.getUser().getAvatarImageLink()}"/>
                                     </a>
                                     <div class="media-body" th:inline="none">
-                                        <span th:utext="${message.getContent()}" th:remove="tag">title</span>
+                                        <span th:utext="${message.getContentHtml()}" th:remove="tag">title</span>
                                         <br/>
                                         <small class="text-muted"
                                                th:text="${message.getUser().getName()
@@ -109,7 +109,7 @@
         + '' + '' + '' + '<img class="media-object img-circle" src="<%= user.avatarImageLink %>"/>'
         + '' + '' + '</a>'
         + '' + '' + '<div class="media-body">'
-        + '' + '' + '' + '<%= content %>'
+        + '' + '' + '' + '<%= contentHtml %>'
         + '' + '' + '' + '<br/>'
         + '' + '' + '' + '<small class="text-muted"><%= user.name  %> | <%= moment(sent).format("DD-MM-YYYY, HH:mm:ss") %></small>'
         + '' + '' + '' + '<hr/>'

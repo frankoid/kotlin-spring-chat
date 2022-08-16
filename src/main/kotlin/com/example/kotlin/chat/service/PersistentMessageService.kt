@@ -15,7 +15,7 @@ class PersistentMessageService(val messageRepository: MessageRepository) : Messa
     override fun after(messageId: String): List<MessageVM> =
         messageRepository.findLatest(messageId).mapToViewModel()
 
-    override fun post(message: MessageVM) {
+    override fun post(message: MessageInputVM) {
         messageRepository.save(message.asDomainObject())
     }
 }

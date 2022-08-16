@@ -44,7 +44,7 @@ class FakeMessageService : MessageService {
         return latest()
     }
 
-    override fun post(message: MessageVM) {
+    override fun post(message: MessageInputVM) {
         TODO("Not yet implemented")
     }
 }

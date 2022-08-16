@@ -82,7 +82,7 @@
                                              th:src="${message.getUser().getAvatarImageLink()}"/>
                                     </a>
                                     <div class="media-body" th:inline="none">
-                                        <span th:utext="${message.getContent()}" th:remove="tag">title</span>
+                                        <span th:utext="${message.getContentHtml()}" th:remove="tag">title</span>
                                         <br/>
                                         <small class="text-muted"
                                                th:text="${message.getUser().getName()
